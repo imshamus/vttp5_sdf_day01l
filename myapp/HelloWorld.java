@@ -1,14 +1,16 @@
 
 package myapp;
 
-/* import java.io.Console; */
+import java.io.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelloWorld {
 
     public static void main (String[] args) {
         System.out.println("hello, world");
 
-        /* Console cons = System.console(); */
+        Console cons = System.console();
         /* String name = cons.readLine("What is your name? ");
 
         if(name.length() > 0) {
@@ -80,7 +82,7 @@ public class HelloWorld {
         }
         } */
 
-            if (args.length > 0) 
+            /* if (args.length > 0) 
             {
                 String[] names = new String[5];
 
@@ -104,7 +106,20 @@ public class HelloWorld {
 
             {
                 System.out.println("No argument passed");
+            } */
+
+            List<String> names = new ArrayList<>();
+            String input = "";
+
+            do 
+            {
+                input = cons.readLine("Enter a name: ");
+                if (!input.equals("quit"))
+                {
+                    names.add(input);
+                }   
             }
+            while (!input.equals("quit"));
 
         }
 
