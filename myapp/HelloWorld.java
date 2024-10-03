@@ -4,6 +4,7 @@ package myapp;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class HelloWorld {
 
@@ -108,7 +109,7 @@ public class HelloWorld {
                 System.out.println("No argument passed");
             } */
 
-            List<String> names = new ArrayList<>();
+            /* List<String> names = new ArrayList<>();
             String input = "";
 
             do 
@@ -119,7 +120,31 @@ public class HelloWorld {
                     names.add(input);
                 }   
             }
-            while (!input.equals("quit"));
+            while (!input.equals("quit")); */
+
+            /// SDF DAY 2
+
+            List<String> words = new ArrayList<>(); // <> Generic means only can store string (?), can also use ArrayList<String>, will instantiate to String as declared Step 1
+
+            String keyboardInput = ""; // step 2
+            keyboardInput = cons.readLine("Enter a sentence: ");
+            keyboardInput = keyboardInput.replace(',', ' ') //scanner default seperator is space, if we have commas instead, we need to replace.
+
+            Scanner scan = new Scanner(keyboardInput); // step 3: we use console to read in this caase for input, slides use system.in just ask input
+            //to use scanner must instantiate, which takes up memory space on pc
+            
+
+            while (scan.hasNext()) //has next is next word, nextLine() is whole line(?)
+            {
+                words.add(scan.next());
+                              
+            }
+            scan.close(); // to release memory
+
+            for (int z=0; z < words.size(); z++) //read size
+            {
+                System.out.printf("%d : %s \r\n", z+1, words.get(z)); // read get()
+            }
 
         }
 
